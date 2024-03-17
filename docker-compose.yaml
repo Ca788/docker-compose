@@ -1,0 +1,11 @@
+services:
+  banco:
+    image: redis:alpine
+  aplicacao:
+    build:
+      context: ./aplicacao
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    depends_on:
+      - banco
